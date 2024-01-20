@@ -1,4 +1,4 @@
-package com.bestinsurance.api;
+package com.bestinsurance.api.jpa;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.ClassRule;

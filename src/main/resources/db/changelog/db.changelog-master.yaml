@@ -2,6 +2,31 @@ databaseChangeLog:
 - include:
     file: db/changelog/001-ddl-definition.sql
 - changeSet:
-     id:  '1'
-     author:  bestDev
-     changes: []
+      id: load-countries-data
+      labels: countries-states-cities-data
+      author: jpa_dev
+      changes:
+          - loadData:
+                tableName: countries
+                usePreparedStatements: false
+                separator: ','
+                relativeToChangelogFile: true
+                file: countries_data.csv
+                encoding: UTF-8
+                quotchar:  '"'
+          - loadData:
+                tableName: states
+                usePreparedStatements: false
+                separator: ','
+                relativeToChangelogFile: true
+                file: states_data.csv
+                encoding: UTF-8
+                quotchar:  '"'
+          - loadData:
+                tableName: cities
+                usePreparedStatements: false
+                separator: ','
+                relativeToChangelogFile: true
+                file: cities_data.csv
+                encoding: UTF-8
+                quotchar:  '"'

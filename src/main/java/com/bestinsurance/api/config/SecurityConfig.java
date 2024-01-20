@@ -9,7 +9,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class SecurityConfig {
 
-	@Bean
+	/*@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(auth -> {
 			auth.requestMatchers("/").permitAll();
@@ -17,7 +17,7 @@ public class SecurityConfig {
 		}).oauth2Login(withDefaults()).formLogin(withDefaults());
 
 		return http.build();
-	}
+	}*/
 
 	/*
 	 * @Bean public SecurityFilterChain filterChain(HttpSecurity http) throws
