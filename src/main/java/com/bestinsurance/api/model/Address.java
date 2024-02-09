@@ -4,7 +4,6 @@ import java.util.Objects;
 import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -25,7 +24,7 @@ public class Address {
 	private UUID addressId;
 	
 	@Column(name="address")
-	private String address;
+	private String name;
 	
 	@Column(name="postal_code")
 	private String postalCode;
@@ -42,8 +41,8 @@ public class Address {
 	@JoinColumn(name="state_id")
 	private State state;
 	
-	@OneToOne(mappedBy ="address", fetch = FetchType.LAZY)
-	private Customer customer;
+	/*@OneToOne(mappedBy ="address", fetch = FetchType.LAZY)
+	private Customer customer;*/
 
 	@Override
 	public int hashCode() {

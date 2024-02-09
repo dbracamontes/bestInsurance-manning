@@ -56,7 +56,15 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Spring security-->
+		<!-- DTO Mapper-->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<!-- DTO Mapper-->
+
+		<!-- Spring security
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -64,7 +72,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
+		</dependency>-->
 		<!-- Spring security-->
 
 		<!--Test Container -->
