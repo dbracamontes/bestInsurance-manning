@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/status")
 public class ApplicationStatusController {
-    
-    private String apiVersion;
 
     @GetMapping
     public Status getStatus() {

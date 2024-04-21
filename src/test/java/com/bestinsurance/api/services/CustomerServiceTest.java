@@ -1,6 +1,8 @@
 package com.bestinsurance.api.services;
 
 import com.bestinsurance.api.config.DomainConfig;
+import com.bestinsurance.api.converter.GenericConverter;
+import com.bestinsurance.api.dto.CustomerView;
 import com.bestinsurance.api.model.Customer;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
@@ -31,6 +33,9 @@ public class CustomerServiceTest {
 	@Autowired
 	private CustomerService customerService;
 
+	@Autowired
+	private GenericConverter genericConverter;
+
 	@ClassRule
 	public static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14.5-alpine")
 			.withPassword("password").withUsername("postgres").withExposedPorts(5432, 5432)
@@ -54,25 +59,24 @@ public class CustomerServiceTest {
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
 
-		customer = customerService.create(customer);
-		assertNotNull(customer.getCustomerId());
-		assertNotNull(customer.getCreated());
+		CustomerView customerView = customerService.create(customer);
+		assertNotNull(customerView.getCustomerId());
 	}
-	
+
 	@Test
 	void getAllCustomers() {
-		List<Customer> customers = customerService.findAll();
-		assertEquals(0 , customers.size());
-		
+		List<CustomerView> customers = customerService.findAll();
+		assertEquals(0, customers.size());
+
 		Customer customer = new Customer();
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
 
-		customer = customerService.create(customer);
+		customerService.create(customer);
 		customers = customerService.findAll();
-		
-		assertEquals(1 , customers.size());
+
+		assertEquals(1, customers.size());
 	}
 
 	@Test
@@ -82,16 +86,15 @@ public class CustomerServiceTest {
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
 
-		customer = customerService.create(customer);
+		CustomerView customerView = customerService.create(customer);
 
-		Customer customerById = customerService.getById(customer.getCustomerId()).get();
+		CustomerView customerById = customerService.getById(customer.getCustomerId());
 		assertNotNull(customerById.getCustomerId());
-		assertNotNull(customerById.getCreated());
-		assertEquals(customer.getCustomerId(), customerById.getCustomerId());
-		assertEquals(customer.getEmail(), customerById.getEmail());
-		assertEquals(customer.getName(), customerById.getName());
+		assertEquals(customerView.getCustomerId(), customerById.getCustomerId());
+		assertEquals(customerView.getEmail(), customerById.getEmail());
+		assertEquals(customerView.getName(), customerById.getName());
 	}
-	
+
 	@Test
 	void deleteCustomer() {
 		Customer customer = new Customer();
@@ -99,13 +102,13 @@ public class CustomerServiceTest {
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
 
-		customer = customerService.create(customer);
-		
-		customerService.delete(customer.getCustomerId());
-		List<Customer> customers = customerService.findAll();
-		assertEquals(0 , customers.size());
+		CustomerView customerView = customerService.create(customer);
+
+		customerService.delete(customerView.getCustomerId());
+		List<CustomerView> customers = customerService.findAll();
+		assertEquals(0, customers.size());
 	}
-	
+
 	@Test
 	void updateCustomer() {
 		Customer customer = new Customer();
@@ -113,13 +116,13 @@ public class CustomerServiceTest {
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
 
-		customer = customerService.create(customer);
-		
-		customer.setEmail("test@email.com");
-		customer = customerService.update(customer.getCustomerId(), customer);
+		CustomerView customerView = customerService.create(customer);
+		customerView.setEmail("test@email.com");
 
-		assertEquals("test@email.com" , customer.getEmail());
+		customerView = customerService.update(customer.getCustomerId(),
+				genericConverter.convertToType(customerView, Customer.class));
+
+		assertEquals("test@email.com", customerView.getEmail());
 	}
-	
 
 }

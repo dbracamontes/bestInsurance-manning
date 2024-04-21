@@ -1,18 +1,17 @@
 package com.bestinsurance.api.services;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
-public interface CrudService<T> {
+public interface CrudService<T,U> {
 
-	T create(T obj);
+	U create(T obj);
 
-    List<T> findAll();
+    List<U> findAll();
 
-    Optional<T> getById(UUID id);
+    U getById(UUID id);
 
-    T update(UUID id, T obj);
+    U update(UUID id, T obj);
 
     void delete(UUID id);
 }

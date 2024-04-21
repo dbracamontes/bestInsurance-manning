@@ -1,0 +1,23 @@
+{
+    "customerId": "669f5915-d6a2-474a-a508-f658220e6f84",
+    "name": "Daniel",
+    "surname": "Bracamontes",
+    "email": "danielbracamontes87@gmail.com",
+    "address": {
+        "addressId": "e03fbc5f-c1e6-479c-90ef-7122f79586cb",
+        "name": "Manuel de falla",
+        "postalCode": "44810",
+        "country": {
+            "countryId": "d4153ed2-91e6-40da-a3c5-1de8a6d0119c",
+            "name": "US"
+        },
+        "city": {
+            "cityId": "45576d7c-8d84-4422-9440-19ef80fa16f3",
+            "name": "Abbeville city"
+        },
+        "state": {
+            "stateId": "4b62177f-7eb0-448e-86c1-3e168e44cc29",
+            "name": "Alabama"
+        }
+    }
+}
