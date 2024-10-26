@@ -16,6 +16,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -47,7 +48,9 @@ public class Subscription {
 	private OffsetDateTime updated;
 
 	
-
+	@Getter
+	@Setter
+	@AllArgsConstructor
 	@Embeddable
 	public class SubscriptionKey {
 		@ManyToOne(fetch = FetchType.LAZY)

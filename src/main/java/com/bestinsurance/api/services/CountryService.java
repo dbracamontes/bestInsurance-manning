@@ -46,7 +46,8 @@ public class CountryService implements CrudService<Country, CountryView> {
 
 		oldCountry.setName(country.getName());
 		oldCountry.setPopulation(country.getPopulation());
-		return null;
+		
+		return  genericConverter.convertToType(countryRepository.save(oldCountry), CountryView.class);
 	}
 
 	@Override

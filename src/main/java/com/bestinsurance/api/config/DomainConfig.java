@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class DomainConfig {
 
 	@Bean // Makes ZonedDateTime compatible with auditing fields
-	public DateTimeProvider auditingDateTimeProvider() {
+	private DateTimeProvider auditingDateTimeProvider() {
 		return () -> Optional.of(ZonedDateTime.now());
 	}
 

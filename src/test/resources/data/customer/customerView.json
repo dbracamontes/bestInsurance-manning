@@ -3,6 +3,7 @@
     "name": "Daniel",
     "surname": "Bracamontes",
     "email": "danielbracamontes87@gmail.com",
+    "birthDate":"1987-05-14",
     "address": {
         "addressId": "e03fbc5f-c1e6-479c-90ef-7122f79586cb",
         "name": "Manuel de falla",

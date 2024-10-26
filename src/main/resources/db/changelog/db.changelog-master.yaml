@@ -1,6 +1,8 @@
 databaseChangeLog:
 - include:
     file: db/changelog/001-ddl-definition.sql
+- include:
+    file: db/changelog/002-prj4-changes.sql
 - changeSet:
       id: load-countries-data
       labels: countries-states-cities-data

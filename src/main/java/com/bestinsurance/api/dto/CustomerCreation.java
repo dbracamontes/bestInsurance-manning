@@ -1,5 +1,6 @@
 package com.bestinsurance.api.dto;
 
+import java.time.LocalDate;
 import java.util.UUID;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -23,6 +24,9 @@ public class CustomerCreation {
 	@NotBlank
 	@Email
 	private String email;
+	
+	@NotNull
+	private LocalDate birthDate;
 	
 	@NotNull
 	private AddressCreation address;

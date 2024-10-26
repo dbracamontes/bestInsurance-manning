@@ -20,6 +20,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootTest
@@ -58,6 +59,7 @@ public class CustomerServiceTest {
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
+		customer.setBirthDate(LocalDate.of(1987, 05, 14));
 
 		CustomerView customerView = customerService.create(customer);
 		assertNotNull(customerView.getCustomerId());
@@ -72,6 +74,7 @@ public class CustomerServiceTest {
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
+		customer.setBirthDate(LocalDate.of(1987, 05, 14));
 
 		customerService.create(customer);
 		customers = customerService.findAll();
@@ -101,6 +104,7 @@ public class CustomerServiceTest {
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
+		customer.setBirthDate(LocalDate.of(1987, 05, 14));
 
 		CustomerView customerView = customerService.create(customer);
 
@@ -115,6 +119,7 @@ public class CustomerServiceTest {
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
+		customer.setBirthDate(LocalDate.of(1987, 05, 14));
 
 		CustomerView customerView = customerService.create(customer);
 		customerView.setEmail("test@email.com");

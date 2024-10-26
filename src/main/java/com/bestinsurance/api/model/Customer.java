@@ -1,5 +1,6 @@
 package com.bestinsurance.api.model;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -49,6 +50,9 @@ public class Customer {
 	@Column(name = "created")
 	@CreatedDate
 	private OffsetDateTime created;
+	
+	@Column(name = "birth_date")
+	private LocalDate birthDate;
 
 	@Column(name = "updated")
 	@LastModifiedDate

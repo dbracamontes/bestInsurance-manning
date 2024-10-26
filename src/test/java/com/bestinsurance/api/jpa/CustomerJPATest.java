@@ -1,6 +1,9 @@
 package com.bestinsurance.api.jpa;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.time.LocalDate;
+
 import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -47,6 +50,7 @@ public class CustomerJPATest {
 		customer.setEmail("daniel@gmail.com");
 		customer.setName("Daniel");
 		customer.setSurname("Bracamontes");
+		customer.setBirthDate(LocalDate.of(1987, 5, 14));
 			
 		customer = customerRepository.save(customer);
 		assertNotNull(customer.getCustomerId());
